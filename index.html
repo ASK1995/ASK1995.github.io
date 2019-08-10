@@ -1,33 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title> Moments maketh the man  
-  </title>
-  <link href="./style.css" type="text/css" rel="stylesheet">
-  </link>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/images/profile.PNG">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Santosh Kumar Aenugu - Full Stack Sofware Developer!</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
 </head>
 
-  
-<body>
+<style>
+    body {
+        background-size: cover;
+        height: 100%;
+        background-size: contain;
+        background-color: #f7f7f7 !important;
+        background-position: bottom;
+    }
 
-<div class="1">
-  <h1 style="text-align:center;"> Dota2 </h1>
-  <h1 style="text-align:center;"> One Piece </h1>
-  <h1 style="text-align:center;"> Chess </h1>
-  <h1 style="text-align:center;"> Distributed Systems </h1>
-  <h1 style="text-align:center;"> Statistics </h1>
-  <h1 style="text-align:center;"> Food </h1>
-  
-  
-  
-</div>
-  
-<div class = "2">
-  
-  
-</div>
-  
- 
+    .divHome {
+
+        text-align: center;
+    }
+
+    @media (min-width: 576px) {
+        .jumbotron {
+            padding: 4rem 2rem;
+        }
+    }
+
+    .jumbotron {
+        background-color: #f7f7f7 !important;
+        padding: 2rem 1rem;
+        margin-bottom: 0px !important;
+        border-radius: .3rem;
+    }
+
+    .home {
+    	display: flex;
+    	align-items: end;
+    	margin: 0 auto;
+    	width: fit-content !important;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 50px;
+        object-fit: cover;
+        padding: 10px;
+    }
+
+    .grid-container>a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .grid-item {
+        background-color: #e7e7e7;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        color: darkorange;
+	border-radius: 20%;
+    }
+
+    .grid-item1 {
+        padding: 10px;
+        text-align: center;
+        color: black;
+    }
+
+    .profile {
+        border-radius: 50%;
+        width: 152px;
+        height: 152px;
+        object-fit: cover;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        padding: 5px;
+    }
+	.social {
+		display : inline-grid;	
+}
+
+    .footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .pr1 {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <div id="root"></div>
+
+    <script>
+        class HomeComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                const projects = [{ id: '1', title: 'PricingCalculator', desc: '', url: 'https://codepen.io/asksantosh/pen/oKoYKa' }, { id: '2', title: 'CrazyButtons', desc: '', url: 'https://codepen.io/asksantosh/pen/QeOGPN' }, { id: '3', title: 'StopWatch', desc: '', url: 'https://codepen.io/asksantosh/pen/xvPgMe' }]
+                this.state = { pro: projects };
+            }
+            componentDidMount() {
+
+            }
+            fetchAll() {
+                fetch('./dept/depts')
+                    .then(res => res.json())
+                    .then(courses => this.setState({ courses: courses }));
+
+            }
+            render() {
+                return (
+                    React.createElement("div", { className: 'divHome container' },
+                        React.createElement("div", { className: 'container jumbotron home' },
+			React.createElement("div", { className: 'details' },
+                            React.createElement("div", { className: 'pr1' },
+                                React.createElement("img", { className: 'profile', src: './images/profile.PNG' }),
+                            ),
+	                            React.createElement("h4", { className: 'grid-item1' }, 'Santosh Kumar Aenugu'),
+			    React.createElement("h6", { className: 'grid-item1' }, 'Full Stack Software Developer'),
+			),			
+			React.createElement("div", { className: 'social' },
+			    React.createElement("a", { href: './resume.pdf' },
+                                React.createElement("img", { className: 'icon', src: './images/resume.png' }),
+                            ),
+                            React.createElement("a", { href: 'https://github.com/ASK1995' },
+                                React.createElement("img", { className: 'icon', src: './images/github.png' }),
+                            ),
+                            React.createElement("a", { href: 'https://www.linkedin.com/in/santu95/' },
+                                React.createElement("img", { className: 'icon', src: './images/linkedin.png' }),
+                            ),
+                            React.createElement("a", { href: 'mailto:a.santoshkumar1995@gmail.com' },
+                                React.createElement("img", { className: 'icon', src: './images/gmail.jpg' }),
+                            ),
+                            React.createElement("a", { href: 'tel:5417459012' },
+                                React.createElement("img", { className: 'icon', src: './images/phone.jpg' }),
+                            )
+                        )
+                        ),
+                        React.createElement("div", { className: 'container ' },
+                            React.createElement("h4", {}, 'Project Demos!'),
+			    React.createElement("br", {}, ),
+                            React.createElement("div", { className: 'grid-container' },
+                                this.state.pro.map((p) => {
+                                    return React.createElement("a", { key: p.id, className: 'grid-item', href: p.url }, p.title)
+
+                                })
+                            ),
+                        ),
+                        
+                    )
+                )
+            }
+        }
+        ReactDOM.render(
+            React.createElement(HomeComponent, {}),
+            document.getElementById("root")
+        );
+    </script>
 </body>
+
 </html>
